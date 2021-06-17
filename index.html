@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./vue.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Techno</title>
+</head>
+
+<body>
+    <div id="app">
+        <section class="modal" v-if="produto">
+            <div class="modal_container">
+                <div class="modal_img">
+                    <img :src="produto.img" :alt="produto.nome" />
+                </div>
+                <div class="modal_dados">
+                    <span class="modal_preco">{{produto.preco}} </span>
+                    <h2 class="modal_titulo"> {{produto.nome}} </h2>
+                    <p>{{produto.descricao}}</p>
+                    <button class="modal_btn"> Adicionar item </button>
+                </div class="avaliacoes">
+                    <h2 class="avaliacoes_subtitulo">Avaliações </h2>
+                    <ul>
+                        <li v-for="avaliacoes in produto.reviews" class="avaliacao">
+                            <p class="avaliacao_descricao">{{avaliacoes.descricao}}</p>
+                            <p class="avaliacao_usuario">{{avaliacoes.nome}} | {{avaliacoes.estrelas}} estrelas </p>
+                        </li>
+                    </ul>
+                <div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="produtos">
+            <div v-for="item in produtos" class="produto" @click="fetchProduto(item.id)" :key="item.id">
+                <img :src="item.img" :alt="item.nome" class="produto_img" />
+                <div class="produto_info">
+                    <span class="preco">{{item.preco | numeroPreco}}</span>
+                    <h2 class="produto_titulo">{{item.nome}}</h2>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
