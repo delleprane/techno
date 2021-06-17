@@ -25,7 +25,9 @@
                     <h2 class="modal_titulo"> {{produto.nome}} </h2>
                     <p>{{produto.descricao}}</p>
                     <button class="modal_btn"> Adicionar item </button>
-                </div class="avaliacoes">
+                </div>
+
+                <div class="avaliacoes">
                     <h2 class="avaliacoes_subtitulo">Avaliações </h2>
                     <ul>
                         <li v-for="avaliacoes in produto.reviews" class="avaliacao">
@@ -33,6 +35,7 @@
                             <p class="avaliacao_usuario">{{avaliacoes.nome}} | {{avaliacoes.estrelas}} estrelas </p>
                         </li>
                     </ul>
+                </div>
                 <div>
 
                 </div>
