@@ -3,7 +3,8 @@ const vm = new Vue({
     data: {
         produtos: [],
         produto: false,
-        carrinhoTotal:0
+        carrinho: [],
+        carrinhoTotal: 0
     },
     filters: {
         numeroPreco(valor) {
@@ -27,10 +28,10 @@ const vm = new Vue({
 
         abrirModal(id) {
             this.fetchProduto(id),
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            })
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                })
         },
 
         fecharModal(event) {
@@ -38,8 +39,8 @@ const vm = new Vue({
 
         },
 
-        carrinhoTotal(){
-
+        adicionarItem() {
+            this.produto.estoque--;
         }
     },
     created() {
