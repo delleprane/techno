@@ -15,6 +15,26 @@
 
 <body>
     <div id="app">
+        
+        <header class="header">
+            <img src="./assets/techno.svg" alt="logo-techno" class="logo">
+            <div class="carrinho_menu">
+                {{carrinhoTotal}} |
+            </div>
+        </header>
+
+
+        <section class="produtos">
+            <div v-for="item in produtos" class="produto" @click="abrirModal(item.id)" :key="item.id">
+                <img :src="item.img" :alt="item.nome" class="produto_img" />
+                <div class="produto_info">
+                    <span class="preco">{{item.preco | numeroPreco}}</span>
+                    <h2 class="produto_titulo">{{item.nome}}</h2>
+                </div>
+            </div>
+        </section>
+
+
         <section class="modal" v-if="produto" @click="fecharModal">
             <div class="modal_container">
                 <div class="modal_img">
@@ -39,16 +59,6 @@
                 </div>
                 <div>
 
-                </div>
-            </div>
-        </section>
-
-        <section class="produtos">
-            <div v-for="item in produtos" class="produto" @click="abrirModal(item.id)" :key="item.id">
-                <img :src="item.img" :alt="item.nome" class="produto_img" />
-                <div class="produto_info">
-                    <span class="preco">{{item.preco | numeroPreco}}</span>
-                    <h2 class="produto_titulo">{{item.nome}}</h2>
                 </div>
             </div>
         </section>

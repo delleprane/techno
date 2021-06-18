@@ -2,7 +2,8 @@ const vm = new Vue({
     el: "#app",
     data: {
         produtos: [],
-        produto: false
+        produto: false,
+        carrinhoTotal:0
     },
     filters: {
         numeroPreco(valor) {
@@ -34,6 +35,10 @@ const vm = new Vue({
 
         fecharModal(event) {
             if (event.target === event.currentTarget) this.produto = false;
+
+        },
+
+        carrinhoTotal(){
 
         }
     },
