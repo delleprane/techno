@@ -19,7 +19,14 @@
         <header class="header">
             <img src="./assets/techno.svg" alt="logo-techno" class="logo">
             <div class="carrinho_menu">
-                {{carrinhoTotal}} |
+                {{carrinhoTotal}} | {{carrinho.length}}
+
+                <ul>
+                    <li v-for="(item,index) in carrinho">
+                        <p>{{item.nome}} {{index}}</p>
+                        <button @click="removerItem">X</button>
+                    </li>
+                </ul>
             </div>
         </header>
 
