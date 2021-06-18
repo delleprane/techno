@@ -4,6 +4,7 @@ const vm = new Vue({
         produtos: [],
         produto: false,
         carrinho: [],
+        carrinhoAtivo: false,
         mensagemAlerta: "Item adicionado",
         alertaAtivo: false
 
@@ -50,7 +51,13 @@ const vm = new Vue({
         },
 
         fecharModal(event) {
-            if (event.target === event.currentTarget) this.produto = false;
+            if (event.currentTarget === event.target) this.produto = false;
+
+
+        },
+
+        clickForaCarrinho(event) {
+            if (event.currentTarget === event.target) this.carrinhoAtivo = false
 
         },
 
