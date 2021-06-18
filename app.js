@@ -4,7 +4,7 @@ const vm = new Vue({
         produtos: [],
         produto: false,
         carrinho: [],
-        
+
     },
     filters: {
         numeroPreco(valor) {
@@ -15,7 +15,7 @@ const vm = new Vue({
     computed: {
         carrinhoTotal() {
             let total = 0;
-            if(this.carrinho.length){
+            if (this.carrinho.length) {
                 this.carrinho.forEach(item => {
                     total += item.preco
                 });
@@ -60,9 +60,25 @@ const vm = new Vue({
 
         removerItem(index) {
             this.carrinho.splice(index, 1)
+        },
+
+        checarLocalStorage(){
+            if (window.localStorage.carrinho) {
+                this.carrinho = JSON.parse(window.localStorage.carrinho)
+                // volta ao que era antes de ser string
+            }
         }
     },
+
+    watch:{
+        carrinho(){
+            window.localStorage.carrinho =  JSON.stringify(this.carrinho)   
+            // transforma e string
+        }
+    },
+
     created() {
         this.fetchProdutos()
+        this.checarLocalStorage()
     }
 })
