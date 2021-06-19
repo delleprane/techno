@@ -75,7 +75,7 @@
                         <li v-for="(item, index) in carrinho" class="carrinho_item">
                             <p>{{item.nome}}</p>
                             <p class="carrinho_preco">{{item.preco | numeroPreco}}</p>
-                            <button class="carrinho_remover" @click="removerItem(index)">Remover</button>
+                            <button class="carrinho_remover" @click="removerItem(index)">X</button>
                         </li>
                     </ul>
                     <p class="carrinho_total">{{carrinhoTotal | numeroPreco}}</p>
